@@ -1,0 +1,177 @@
+
+
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style>
+       .container{
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        color: rgb(67, 98, 98);
+        color: rgb(10, 160, 158);
+       }
+
+
+       .bigBox{
+        display: grid;
+        grid-template-columns: auto auto auto;
+        /* border: 2px solid black; */
+        /* box-shadow: 10px 10px rgba(63, 60, 60, 0.392); */
+       }
+
+       .box{
+        border: 4px solid #BDC1C6 ;
+        height: 100px;
+        width: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 100px ;
+       }
+
+       .bt{
+        border-top: none;
+       }
+
+       .bb{
+        border-bottom: none;
+       }
+
+       .bl{
+        border-left: none;
+       }
+
+       .br{
+        border-right: none;
+       }
+
+       .trn{
+        height: 50px;
+        width: 80px;
+        border: 4px solid #BDC1C6;
+        border-radius: 3px;
+        margin-bottom: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 70px;
+        padding: 5px;
+        margin: 2px;
+       }
+
+       .trnBox{
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 30px;
+       }
+
+       body{
+        background-color: #202124;
+        color: #a66eb0;
+        font-family: sans-serif;
+       }
+
+       #plo{
+        color: #d599fd;
+       }
+
+       button{
+        border: none;
+        border-radius: 7px;
+        color:#202124 ;
+        font-size: 20px;
+        font-weight: 800;
+        margin-top: 50px;
+       }
+
+    </style>
+</head>
+<body>
+
+      <div class="container">
+        <label for=""><h1>Turn</h1></label>
+        <div class="trnBox">
+            <div class="trn" id="plo">x</div>
+            <div class="trn" id="palo"> </div>
+        </div>
+        
+          <div class="bigBox">
+              <div class="box bl bt"></div>
+              <div class="box bt"></div>
+              <div class="box br bt"></div>
+              <div class="box bl"></div>
+              <div class="box"></div>
+              <div class="box br"></div>
+              <div class="box bl bb"></div>
+              <div class="box bb"></div>
+              <div class="box br bb"></div>
+            </div>
+
+            <button onclick="reset()">reset</button>
+      </div>
+       
+
+    <script>
+    
+    const btns = document.querySelectorAll(".box");
+
+    let num = 0;
+    let purple = "#d599fd"
+
+  
+        function reset(){
+
+            
+        }
+
+    function xko(){
+                    document.getElementById("palo").innerText = "o"
+                    document.getElementById("plo").innerText = " "
+    }
+
+    function oko(){
+                    document.getElementById("plo").innerText = "x";
+                    document.getElementById("palo").innerText = " "
+    }               
+
+
+  
+
+        btns.forEach((element)=>{
+
+
+            element.addEventListener("click",()=>{
+                
+                
+                if(num%2==0){
+                    element.innerHTML="x";
+                    element.style.color = purple;
+
+                    xko();
+
+                    num = num+1;
+                }else{
+                    element.innerHTML="o";
+
+                    oko();
+
+                    num=num+1;
+                }
+            });
+        });
+
+        
+    </script>
+    
+</body>
+</html>
+
+
